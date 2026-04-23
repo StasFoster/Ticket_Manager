@@ -1,0 +1,131 @@
+# =========================
+# 🐍 Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# =========================
+# 🔐 Secrets / Env
+# =========================
+.env
+.env.*
+*.env
+*.env.local
+
+# Django secret key (если отдельно)
+secret_key.txt
+
+# =========================
+# 🗄 Databases
+# =========================
+db.sqlite3
+db.sqlite3-journal
+*.db
+
+
+
+# =========================
+# 📄 Django stuff
+# =========================
+*.pot
+*.mo
+*.pyc
+
+# =========================
+# 🧪 Testing / Coverage
+# =========================
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# =========================
+# 🧰 IDE / Editors
+# =========================
+# VS Code
+.vscode/
+
+# PyCharm / IntelliJ
+.idea/
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# =========================
+# 💻 OS files
+# =========================
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =========================
+# 📦 Build / dist
+# =========================
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# =========================
+# 🐳 Docker (опционально)
+# =========================
+docker-compose.override.yml
+
+# =========================
+# 🔄 Migrations (иногда)
+# =========================
+# ⚠️ Обычно НЕ игнорируют, но можно для pet-проектов
+# */migrations/*
+# !*/migrations/__init__.py
+
+# =========================
+# 🧾 Logs
+# =========================
+*.log
+
+# =========================
+# 🔑 SSL / keys
+# =========================
+*.pem
+*.key
+
+# =========================
+# 📁 Node (если фронт есть)
+# =========================
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# =========================
+# 📦 Celery / Redis
+# =========================
+celerybeat-schedule
+celerybeat.pid
+
+# =========================
+# 🧪 pytest
+# =========================
+.pytest_cache/
