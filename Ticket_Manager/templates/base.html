@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TicketFlow{% endblock %}</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    {% block style %}{% endblock %}
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2 class="logo">Ticket<span>Flow</span></h2>
+
+        <nav>
+            <a href="#" class="nav-link active">Dashboard</a>
+            <a href="#" class="nav-link">Tasks</a>
+            <a href="#" class="nav-link">Team</a>
+            <a href="#" class="nav-link">Settings</a>
+        </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+
+        <!-- Topbar -->
+        <header class="topbar">
+            <div class="page-title">
+                {% block header %}Dashboard{% endblock %}
+            </div>
+
+            <div class="actions">
+                {% block actions %}{% endblock %}
+            </div>
+        </header>
+
+        <!-- Content -->
+        <section class="content">
+            {% block content %}{% endblock %}
+        </section>
+
+    </main>
+
+</div>
+
+<!-- Background glow -->
+<div class="bg-glow"></div>
+
+{% block script %}{% endblock %}
+<script src="{% static "js/script.js" %}"></script>
+
+</body>
+</html>
