@@ -7,10 +7,10 @@
     <title>{% block title %}TicketFlow{% endblock %}</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block style %}{% endblock %}
 </head>
 
@@ -23,10 +23,10 @@
         <h2 class="logo">Ticket<span>Flow</span></h2>
 
         <nav>
-            <a href="#" class="nav-link active">Dashboard</a>
-            <a href="#" class="nav-link">Tasks</a>
-            <a href="#" class="nav-link">Team</a>
-            <a href="#" class="nav-link">Settings</a>
+            <a href="{% url "main" "main" %}" class="nav-link active">Dashboard</a>
+            <a href="{% url "main" "tasks" %}" class="nav-link">Tasks</a>
+            <a href="{% url "main" "teams" %}" class="nav-link">Team</a>
+            <a href="{% url "main" "setings" %}" class="nav-link">Settings</a>
         </nav>
     </aside>
 

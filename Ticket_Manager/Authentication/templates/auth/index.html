@@ -1,1 +1,41 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block title %}Auth{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static "auth/css/style.css" %}">
+{% endblock %}
+{% block content %}
+<div class="auth-wrapper">
+
+    <div class="auth-card">
+
+        <div class="auth-switch">
+            {% if flag %}
+                <a href="{% url "login" %}"><button id="loginBtn" class="active">Login</button></a>   
+            {% else %}
+                <a href="{% url "auth" %}"><button id="registerBtn" class="active">Register</button></a>   
+            {% endif %}
+        </div>
+
+        <!-- FORM -->
+        <form method="POST" class="auth-form">
+            {% csrf_token %}
+
+            <div class="form-fields">
+                {{ form }}
+            </div>
+
+            <button type="submit" class="auth-submit">
+                {% if flag %}Create Account{% else %}Login{% endif %}
+            </button>
+        </form>
+
+    </div>
+
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static "js/auth.js" %}"></script>
+{% endblock %}

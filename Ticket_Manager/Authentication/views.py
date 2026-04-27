@@ -7,7 +7,7 @@ class CreateUserView(View):
 
     data = {
         "form":None,
-        "flag":None,
+        "flag":True,
     }
 
     def get(self, request):
@@ -19,13 +19,13 @@ class CreateUserView(View):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect("main")
+            return redirect("main", page="main")
         return redirect("auth")
 
 class AuthUserView(View):
     data = {
         "form":None,
-        "flag":None,
+        "flag":False,
     }
 
     def get(self, request):
@@ -37,5 +37,5 @@ class AuthUserView(View):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect("main")
+            return redirect("main", page="main")
         return redirect("login")
