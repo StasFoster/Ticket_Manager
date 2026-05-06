@@ -12,6 +12,9 @@ class Company(models.Model):
     fieild_of_activity = models.CharField("Сфера деятельности", max_length=50, choices=Fieild_of_activity)
     director = models.ForeignKey("Authentication.MyUser", verbose_name="Директор", on_delete=models.CASCADE, related_name="director_company")
 
+    def __str__(self):
+        return self.name
+
 class Task(models.Model):
 
     class Status(models.IntegerChoices):
