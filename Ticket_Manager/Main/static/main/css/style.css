@@ -1,0 +1,159 @@
+/* TASK GRID */
+
+.task-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* CARD */
+
+.task-card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 14px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* glow эффект */
+.task-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(159,92,255,0.15), transparent 60%);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.task-card:hover::before {
+    opacity: 1;
+}
+
+.task-card:hover {
+    transform: translateY(-5px);
+}
+
+/* HEADER */
+.task-header h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+/* DESCRIPTION */
+.task-desc {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* META */
+.task-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* EMPTY */
+.empty {
+    opacity: 0.6;
+}
+/* TEAM GRID */
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* CARD */
+
+.team-card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 14px;
+    position: relative;
+    transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* glow */
+.team-card::before {
+    pointer-events: none;
+    position: absolute;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(159,92,255,0.15), transparent 60%);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.team-card:hover::before {
+    opacity: 1;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+}
+
+/* HEADER */
+.team-header h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+/* DESCRIPTION */
+.team-desc {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* META */
+.team-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* director highlight */
+.director {
+    color: var(--accent-soft);
+}
+
+/* EMPTY */
+.empty {
+    opacity: 0.6;
+}
+/* STATUS SELECT */
+
+.status-select {
+    background: #0f0f1a;
+    color: white;
+    border: 1px solid rgba(159,92,255,0.3);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+    position: relative;
+    z-index: 2;
+}
+
+.status-select:hover {
+    box-shadow: 0 0 10px rgba(159,92,255,0.5);
+}
+
+/* разные цвета статусов */
+.status-select[data-status="new"] { border-color: #9f5cff; }
+.status-select[data-status="accepted"] { border-color: #3b82f6; }
+.status-select[data-status="review"] { border-color: #eab308; }
+.status-select[data-status="done"] { border-color: #22c55e; }
+.status-select[data-status="delayed"] { border-color: #a855f7; }
+.status-select[data-status="overdue"] { border-color: #ef4444; }
+.status-select[data-status="returned"] { border-color: #f97316; }

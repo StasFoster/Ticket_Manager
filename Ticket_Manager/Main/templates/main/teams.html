@@ -1,5 +1,47 @@
 {% extends "base.html" %}
+{% load static %}
+{% block title %}Teams{% endblock %}
+
+{% block header %}
+Teams
+{% endblock %}
+
+{% block actions %}
+<a href="{% url "createCompany" %}" class="btn-primary">+ Create team</a>
+{% endblock %}
 
 {% block content %}
-    <a href="{% url "createCompany" %}">Create team</a>
-{% endblock content %}
+
+<div class="team-grid">
+
+    {% for i in object_list %}
+    <div class="team-card">
+
+        <div class="team-header">
+            <h3>{{ i.name }}</h3>
+        </div>
+
+        <p class="team-desc">
+            {{ i.discription }}
+        </p>
+
+        <div class="team-meta">
+            <span class="director">👑 {{ i.director }}</span>
+            <span>💼 {{ i.fieild_of_activity }}</span>
+        </div>
+
+    </div>
+    {% empty %}
+        <p class="empty">No teams yet</p>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static "main/css/style.css" %}">
+{% endblock style %}
+{% block script %}
+    <script src="{% static "main/js/script" %}" ></script>
+{% endblock script %}

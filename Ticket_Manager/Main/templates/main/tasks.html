@@ -1,5 +1,59 @@
 {% extends "base.html" %}
+{% load static %}
+{% block title %}Tasks{% endblock %}
+
+{% block header %}
+Tasks
+{% endblock %}
+
+{% block actions %}
+<a href="{% url "createTask" %}" class="btn-primary">+ Create task</a>
+{% endblock %}
+
+
+
 
 {% block content %}
-    <a href="{% url "createTask" %}">Create task</a>
-{% endblock content %}
+
+<div class="task-grid">
+
+    {% for i in object_list %}
+        <div class="task-card">
+
+            <div class="task-header">
+                <h3>{{ i.name }}</h3>
+            </div>
+
+            <p class="task-desc">
+                {{ i.discription }}
+            </p>
+
+            <div class="task-meta">
+                <span>👤 {{ i.executor }}</span>
+                <span>🏢 {{ i.company }}</span>
+            </div>
+            <select class="status-select" id="status" data-id="{{ i.id }}">
+                    <option value="1" {% if i.status == 1 %}selected{% endif %}>Новая</option>
+                    <option value="2" {% if i.status == 2 %}selected{% endif %}>Принята</option>
+                    <option value="3" {% if i.status == 3 %}selected{% endif %}>На проверке</option>
+                    <option value="4" {% if i.status == 4 %}selected{% endif %}>Завершена</option>
+                    <option value="5" {% if i.status == 5 %}selected{% endif %}>Отложена</option>
+                    <option value="6" {% if i.status == 6 %}selected{% endif %}>Просрочена</option>
+                    <option value="7" {% if i.status == 7 %}selected{% endif %}>Возвращена</option>
+            </select>
+
+        </div>
+    {% empty %}
+        <p class="empty">No tasks yet</p>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static "main/css/style.css" %}">
+{% endblock style %}
+{% block script %}
+    <script src="{% static "main/js/script.js" %}" ></script>
+{% endblock script %}
