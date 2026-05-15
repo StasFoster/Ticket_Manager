@@ -29,6 +29,6 @@ class Task(models.Model):
 
     name = models.CharField("Имя", max_length=50)
     discription = models.CharField("Описание", max_length=500, null=True, blank=True)
-    executor = models.ForeignKey("Authentication.MyUser", verbose_name="Исполнитель", on_delete=models.CASCADE, null=True, blank=True)
-    company = models.ForeignKey("Main.Company", verbose_name="Компания", on_delete=models.CASCADE)
+    executor = models.ForeignKey("Authentication.MyUser", verbose_name="Исполнитель", on_delete=models.CASCADE, null=True, blank=True, related_name="executor")
+    company = models.ForeignKey("Main.Company", verbose_name="Компания", on_delete=models.CASCADE, related_name="company")
     status = models.IntegerField("Статус", choices=Status, default=1)

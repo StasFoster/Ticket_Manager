@@ -34,19 +34,29 @@ function getCookie(name) {
     return cookieValue;
 }
 
+async function getListTask(){
+    await fetch("/tasks/")
+        .then(data=>data.json())
+        .then(data=>{
+            object_list = data["message"]
+            console.log(data);
+            console.log(data["message"]);
+            
+        })
+    console.log("asasasaasasas");
+}
 function CheckStatus(){
     let id = this.dataset.id
     let value = this.value
     const csrftoken = getCookie('csrftoken');
-    fetch("/api/task/status/", {
-        method: "POST",
+    fetch("/tasks/" + id + "/", {
+        method: "PATCH",
         headers:{
             "X-CSRFToken": csrftoken,
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            "id":id,
-            "value":value,
+            status:value,
         })
     })
 }
@@ -54,3 +64,7 @@ function CheckStatus(){
 status_list.forEach(select => {
     select.addEventListener("change", CheckStatus)
 })
+
+document.addEventListener("DOMContentLoaded", ()=>{getListTask()})
+
+

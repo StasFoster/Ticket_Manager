@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from . import forms
 from django.contrib.auth import login, logout
+from .models import MyUser
 
 class CreateUserView(View):
 
@@ -17,6 +18,8 @@ class CreateUserView(View):
     def post(self, request):
         form = forms.MyUserCreateForm(data=request.POST)
         if form.is_valid():
+            if MyUser.objects.filter(username=form.cleaned_data["username"]).exists():
+                return redirect("auth")
             user = form.save()
             login(request, user)
             return redirect("main", page="main")
